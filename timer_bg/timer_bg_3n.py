@@ -57,7 +57,8 @@ else:
         with open('bing.jpg', 'wb') as f:
             f.write(response.content)
     except:
-        Image.new('RGB', (1920,1080), 0).save('bing.jpg')
+        if not os.path.exists('bing.jpg'):
+            Image.new('RGB', (1920,1080), 0).save('bing.jpg')
     img_path = 'bing.jpg'
 img = rerad(Image.open(img_path))
 
